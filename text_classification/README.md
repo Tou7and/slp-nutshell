@@ -1,10 +1,6 @@
 # Text Classification
-Some text classifcation examples.
+Sentiment Analysis using Bag-of-Words.
 
-## Sentiment Analysis on PTT data
-Methods
-- Bag of Words
-- Bag of N-grams
-- TF-IDF
-- Transformers
-
+## Data
+- ptt-movie-clean: scraped from [PTT/movie](https://www.ptt.cc/bbs/movie/index.html)
+- facebook-tsau: taken from [UdicOpenData](https://github.com/UDICatNCHU/UdicOpenData)
