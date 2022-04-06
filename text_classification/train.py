@@ -5,6 +5,7 @@ from glob import glob
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import svm
+from sklearn import tree
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer, TfidfVectorizer
 from sklearn.metrics import accuracy_score
 from bag_of_ngrams import tokenize_unigram, tokenize_bigram
@@ -172,6 +173,15 @@ def train_tfidf(cla="gnb", feat="bigram"):
     return vectorizer, transformer, clf
 
 
+def export_tree(clf, vectorizer, output_file):
+    feat_names = vectorizer.get_feature_names_out().tolist()
+    text_representation = tree.export_text(clf, feature_names=feat_names, max_depth=30) # 20
+
+    with open(output_file, "w") as writer:
+        writer.write(text_representation)
+    return
+
+
 if __name__ == "__main__":
     samples = [
         "政府實在過於無能",
@@ -182,10 +192,18 @@ if __name__ == "__main__":
 
     # train_tfidf_gnb()
     vectorizer, clf = train_bow(feat="unigram", cla="dctree")
+
+    # dump tree as text
+    export_tree(clf, vectorizer, "./tmp/unigram.txt")
+
     for sample in samples:
         print(sample, clf.predict(vectorizer.transform([sample]).toarray()))
 
     vectorizer, clf = train_bow(feat="bigram", cla="dctree")
+
+    # dump tree as text
+    export_tree(clf, vectorizer, "./tmp/bigram.txt")
+
     for sample in samples:
         print(sample, clf.predict(vectorizer.transform([sample]).toarray()))
 
