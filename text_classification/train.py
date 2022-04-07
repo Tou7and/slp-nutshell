@@ -4,6 +4,7 @@ import numpy as np
 from glob import glob
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn import svm
 from sklearn import tree
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer, TfidfVectorizer
@@ -113,6 +114,10 @@ def train_bow(cla="dctree", feat="bigram", verbose=0, min_df=2):
 
     if cla == "dctree":
         clf = DecisionTreeClassifier(random_state=0)
+    elif cla == "rf":
+        clf = RandomForestClassifier(random_state=0)
+    elif cla == "ada":
+        clf = AdaBoostClassifier(random_state=0)
     elif cla == "svm":
         clf = svm.SVC(gamma=0.1)
     else:
@@ -153,7 +158,7 @@ def train_tfidf(cla="gnb", feat="bigram"):
     if cla == "dctree":
         clf = DecisionTreeClassifier(random_state=0)
     elif cla == "svm":
-        clf = svm.SVC(gamma=0.1)
+        clf = svm.SVC() # gamma=0.5
     else:
         clf = GaussianNB()
 
@@ -206,4 +211,8 @@ if __name__ == "__main__":
 
     for sample in samples:
         print(sample, clf.predict(vectorizer.transform([sample]).toarray()))
+
+    vectorizer, clf = train_bow(feat="unigram", cla="ada")
+    vectorizer, clf = train_bow(feat="unigram", cla="rf")
+
 

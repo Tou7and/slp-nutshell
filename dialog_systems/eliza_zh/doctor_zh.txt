@@ -1,0 +1,332 @@
+initial: 你好 請 告訴 我 你的 問題
+final: 再見 謝謝你 跟 我 說話
+quit: 再見
+quit: 掰掰
+pre: 不要不
+pre: 不會不會
+pre: 回憶記得
+pre: 夢想夢想
+pre: 也許也許
+pre: 怎麼樣
+pre: 什麼時候什麼
+pre: 當然是
+pre: 機器
+pre: 電腦
+pre: 曾經是
+pre: 你是你
+pre: 我是我
+pre: 相同
+post: 我是
+post: 你我
+post: 我你
+post: 我自己你自己
+post: 你自己 我自己
+post: 我 你
+post: 你 我
+post: 我 你的
+post: 我是你
+synon: 信念 感覺 認為 相信 願望
+synon: 家庭 媽媽 媽媽 爸爸 爸爸 姐姐 兄弟 妻子 孩子 孩子
+synon: 渴望 想要 需要
+synon: 悲傷 不高興 沮喪 生病
+synon: 高興 興高采烈 高興 更好
+synon: 不能 不能
+synon: 每個人 每個人 沒人 沒有人
+synon: 是 為
+key: xnone 
+  decomp: *
+    reasmb: 我 不確定 我 是否 完全 理解 你
+    reasmb: 請 繼續
+    reasmb: 這 對 你 有什麼 建議
+    reasmb: 你 對 討論 這些 事情 有 強烈 的 感覺 嗎
+key: 抱歉
+  decomp: *
+    reasmb: 請 不要 道歉
+    reasmb: 道歉 是 沒有 必要 的
+    reasmb: 我 已經 告訴 過 你 不需要 道歉
+key: 對不起
+  decomp: *
+    reasmb: goto 抱歉
+key: 記得 5
+  decomp: * 我 記得 *
+    reasmb: 你 經常 想到 (2) 嗎 
+    reasmb: 考慮 (2) 是否 會 讓 人 想起 其他 事情
+    reasmb: 你 還 記得 什麼
+    reasmb: 你 為什麼 想起 剛才 的 (2) 
+    reasmb: 目前 的 情況 讓 你 想起 了 (2) 
+    reasmb: 我 和 (2) 之間 有 什麼 聯繫 
+  decomp: * 你 還 記得 *
+    reasmb: 你 以為 我 會 忘記 (2) 嗎
+    reasmb: 為什麼 你 認為 我 現在 應該 回憶 (2)
+    reasmb: (2) 呢
+    reasmb: 轉 到 什麼
+    reasmb: 你 提到 了 (2)
+key: 如果 3
+  decomp : * 如果 *
+    reasmb: 你 認為 它 可能 是 (2) 嗎
+    reasmb: 你 希望 (2) 嗎
+    reasmb: 你 對 (2) 了解 多少
+    reasmb: 真的 如果 (2)
+key: 夢到 4
+  decomp: * 我 夢到 *
+    reasmb: 真的 (2)
+    reasmb: 你 有沒有 在 醒著 的 時候 幻想 過 (2)
+    reasmb: 你 以前 做過 (2) 夢嗎
+    reasmb: 轉到 夢想
+key: dream 3
+  decomp: *
+    reasmb: 那個 夢想 對 你 有什麼 建議
+    reasmb: 你 經常 做 夢 嗎
+    reasmb: 你 的 夢 裡 出現 了 哪些 人
+    reasmb: 你 認為 夢想 與 你 的 問題 有關 嗎
+key: 也許
+  decomp: *
+    reasmb: 你 似乎 不太 確定
+    reasmb: 為什麼 是 不確定 的 語氣
+    reasmb: 你 不能 更 積極 一點 嗎
+    reasmb: 你 不 確定
+    reasmb: 你 不 知道 嗎
+key: 名字 15
+  decomp: *
+    reasmb: 我 對 名字 不感 興趣
+    reasmb: 我 之前 告訴 過 你 我 不在乎 名字 請 繼續
+key: deutsch
+  decomp: *
+    reasmb: goto xforeign
+    reasmb: 我 之前 告訴 過你 我 不懂 德語
+key: francais
+  decomp: *
+    reasmb: goto xforeign
+    reasmb: 我 之前 告訴 過 你 我 不懂 法語
+key: italiano
+  decomp: *
+    reasmb: goto xforeign
+    reasmb: 我 之前 告訴 過 你 我 不懂 意大利語
+key: espanol
+  decomp: *
+    reasmb: goto xforeign
+    reasmb: 我 之前 告訴 過 你 我 不懂 西班牙語
+key: xforeign decomp
+  decomp: *
+    reasmb: 我 只會 說 中文
+key: 你好
+  decomp: *
+    reasmb: 你 好 請 說明 你 的 問題
+    reasmb: 嗨 你 的問題 是 什麼
+key: 電腦 50
+  decomp: *
+    reasmb: 電腦 讓 你 擔心嗎
+    reasmb: 你 為什麼 提到 電腦
+    reasmb: 您 認為 機器 與 您 的 問題 有什麼 關係
+    reasmb: 你 不認為 電腦 可以 幫助 人 嗎
+    reasmb: 機器 讓 你 擔心 什麼
+    reasmb: 你 對 機器 有什麼 看法
+key: 我是
+  decomp: * 我 是 *
+    reasmb: 你 相信 你 是 (2) 嗎
+    reasmb: 你 想 成為 (2) 嗎
+    reasmb: 你 希望 我 告訴 你 你是 (2) 嗎
+    reasmb: 如果 你 是 (2) 意味 著 什麼
+    reasmb: (2) 是 什麼
+  decomp: *
+    reasmb: 你 為什麼 說 你 是
+    reasmb: 我 不明白
+key: 你是
+  decomp: * 你 是 *
+    reasmb: 你 為什麼 對 我 是否 (2) 感興趣
+    reasmb: 如果 我 不是 (2) 你 會 更 喜歡 嗎
+    reasmb: 也許 我 在 你 的 幻想 中 是 (2)
+    reasmb: 你 有時 認為 我 是 (2) 嗎
+  decomp: * 是 *
+    reasmb: 您 認為 它們 可能 不是 (2) 嗎
+    reasmb: 如果 不是 (2) 你 會 喜歡 嗎
+    reasmb: 如果 他們 不是 (2) 怎麼辦
+    reasmb: 可能 是 (2) 
+key: 你的
+  decomp: * 你 的 *
+    reasmb: 你 為什麼 關心 我 的 (2) 
+    reasmb: 你 自己 的 (2) 呢
+    reasmb: 你 擔心 別人 的 (2) 嗎
+    reasmb: 我 的 (2)
+key: 我
+  decomp: * 我 @desire *
+    reasmb: 如 果 你 得到 (3) 對 你 意味 著 什麼
+    reasmb: 你 為什麼 要 (3)
+    reasmb: 假設 你 很快 得到 (3)
+    reasmb: 如果 你 從來 沒有 得到 (3) 怎麼辦
+    reasmb: 得到 (3) 對 你 意味 著 什麼
+    reasmb: 想要 (3) 與 這個 討論 有什麼 關係
+  decomp: * 我 很 * @sad *
+    reasmb: 很遺憾 聽到 你 (3) 
+    reasmb: 你 認為 來 這裡 會 幫助 你 不成為 (3) 嗎
+    reasmb: 我 確定 成為 (3)  並 不愉快
+    reasmb: 你 能 解釋 一下 是 什麼 造就 了 你 (3) 嗎
+  decomp: * 我 很 * @happy *
+    reasmb: 我是如何幫助你成為(3)的
+    reasmb: 您的治療使您 (3) 嗎
+    reasmb: 是什麼讓你(3)剛才
+    reasmb: 你能解釋一下你為什麼突然(3)嗎
+  decomp: * i was *
+    reasmb: goto was decomp
+  decomp: * i @belief * i *
+    reasmb: 你真的這麼認為嗎
+    reasmb: 但你不確定你 (3) 
+    reasmb: 你真的懷疑你(3)嗎
+  decomp: * i * @belief * you *
+    reasmb: goto you decomp
+  decomp: * i am *
+    reasmb: 是因為你是 (2) 你才來找我嗎
+    reasmb: 你多久了(2)
+    reasmb: 您認為 (2) 是正常的嗎
+    reasmb: 你喜歡 (2) 嗎
+  decomp: * i @cannot *
+    reasmb: 你怎麼認為你不能 (3) 
+    reasmb: 你試過嗎
+    reasmb: 也許你現在可以(3)
+    reasmb: 你真的希望能夠 (3) 嗎
+  decomp: * 我不 *
+    reasmb: 你真的不是 (2) 嗎
+    reasmb: 你為什麼不(2)
+    reasmb: 你希望能夠 (2) 嗎
+    reasmb: 這對你有影響嗎
+  decomp: * 我 有 感覺 嗎 *
+    reasmb: 告訴我更多關於這種感覺的信息
+    reasmb: 你經常感覺到(2)嗎
+    reasmb: 你喜歡感覺(2)嗎
+    reasmb: 感覺(2)讓你想起了什麼
+  decomp: * i * you *
+    reasmb: 也許在你的幻想中我們(2)彼此
+    reasmb: 你想(2)我嗎
+    reasmb: 你似乎需要(2)我
+    reasmb: 你(2)還有其他人嗎
+  decomp: *
+    reasmb: 你說 (1) 
+    reasmb: 你能詳細說明一下嗎
+    reasmb: 您說(1)是出於某種特殊原因嗎
+    reasmb: 這很有趣
+key: 你
+  decomp: *你讓我想起 *
+    reasmb: goto alike decomp
+  decomp: *你是 *
+    reasmb: 是什麼讓你認為我是(2)
+    reasmb: 你相信我是 (2) 讓你高興嗎
+    reasmb: 你有時希望你是(2)嗎
+    reasmb: 也許你想成為 (2) 
+  decomp: *你*我*
+    reasmb: 你為什麼認為我(2)你
+    reasmb: 你喜歡認為我(2)你——不是嗎
+    reasmb: 是什麼讓你認為我(2)你
+    reasmb: 真的，我(2)你
+    reasmb: 你願意相信我(2)你嗎
+    reasmb: 假設我做了(2)你——那意味著什麼
+    reasmb: 別人相信我(2)你嗎
+  decomp: * you *
+    reasmb: 我們在討論你——不是我
+    reasmb: 哦，我(2)
+    reasmb: 你不是真的在說我——是嗎
+    reasmb: 你現在的感受是什麼
+key: 是
+  decomp: *
+    reasmb: 你似乎很積極
+    reasmb: 你確定
+    reasmb: 我明白了
+    reasmb: 我明白了
+key: 沒有
+  decomp: *
+    reasmb: 你說不只是為了消極嗎
+    reasmb: 你有點消極
+    reasmb: 為什麼不呢
+    reasmb: 為什麼“不”
+key: my 2
+  decomp: $ * my *
+    reasmb: 讓我們進一步討論為什麼你的 (2) 
+    reasmb: 之前你說過你的 (2) 
+    reasmb: 但是你的 (2) 
+    reasmb: 這與您的 (2) 的事實有關嗎
+  decomp: * my * @family *
+    reasmb: 告訴我更多關於你家人的信息
+    reasmb: 你家裡還有誰(4)
+    回复: 你的(3)
+    reasmb: 當您想到您的 (3) 時，您還會想到什麼
+  decomp: * my *
+    resmb: 你的 (2) ?
+    reasmb: 你為什麼說你的 (2) 
+    reasmb: 這是否暗示了其他屬於你的東西
+    reasmb: 你的 (2) 重要嗎
+key: 可以
+  decomp: *你能*
+    reasmb: 你相信我可以(2)不是嗎
+    reasmb: 轉到什麼
+    reasmb: 你希望我能夠 (2) 
+    reasmb: 也許您希望能夠(2)自己
+  decomp: * can i *
+    reasmb: 你能不能 (2) 取決於你而不是我
+    reasmb: 你想能夠(2)嗎
+    reasmb: 也許你不想 (2) 
+    reasmb: 轉到什麼
+key: 什麼
+  decomp: *
+    reasmb: 你為什麼問
+    reasmb: 你對這個問題感興趣嗎
+    reasmb: 你真正想知道什麼
+    reasmb: 這些問題在你腦海中浮現嗎
+    reasmb: 你最滿意的答案是什麼
+    reasmb: 你怎麼看
+    reasmb: 當你問這個問題時會想到什麼
+    reasmb: 你以前問過這樣的問題嗎
+    reasmb: 你問過其他人嗎
+key: 因為
+  decomp: *
+    resmb: 這是真正的原因嗎
+    reasmb: 沒有任何其他原因浮現在腦海中嗎
+    reasmb: 這個原因似乎可以解釋其他任何事情嗎
+    reasmb: 可能還有什麼其他原因
+key: 為什麼
+  decomp: * 你為什麼不 *
+    reasmb: 你相信我不相信 (2) 嗎
+    reasmb: 也許我會(2)及時
+    reasmb: 你應該(2)你自己嗎
+    reasmb: 你想讓我(2)
+    reasmb: 轉到什麼 decomp
+  decomp: * 為什麼我不能 *
+    reasmb: 你認為你應該能夠(2)嗎
+    reasmb: 你想能夠(2)嗎
+    reasmb: 你相信這會幫助你(2)嗎
+    reasmb: 你知道為什麼你不能 (2) 嗎
+key: 每個人 2
+  decomp: * @everyone *
+    reasmb: 真的，(2)
+    reasmb: 當然不是 (2) 
+    reasmb: 你能特別想到任何人嗎
+    reasmb: 誰，例如
+    reasmb: 你在想一個很特別的人嗎
+    reasmb: 誰，我可以問一下嗎
+    reasmb: 也許是某個特別的人
+    reasmb: 你心裡有一個特定的人，不是嗎
+    reasmb: 你認為你在說誰
+key: 每個人 2
+  decomp: *
+    reasmb: 轉到每個人
+key: 沒人 2
+  decomp: *
+    reasmb: 轉到每個人
+key: 總是 1
+  decomp: *
+    reasmb: 你能想出一個具體的例子嗎
+    reasmb: 什麼時候
+    reasmb: 你在想什麼事件
+    reasmb: 真的，總是
+key: alike 10
+  decomp: *
+    reasmb: 以什麼方式
+    reasmb: 你看到了什麼相似之處
+    reasmb: 這種相似性對你有什麼啟示
+    reasmb: 您還看到了哪些其他聯繫
+    reasmb: 你認為相似是什麼意思
+    reasmb: 你認為有什麼聯繫
+    reasmb: 這裡真的有什麼聯繫嗎
+    reasmb: 怎麼樣
+key: like 10
+  decomp: * @be * like *
+    reasmb: goto alike
+   
