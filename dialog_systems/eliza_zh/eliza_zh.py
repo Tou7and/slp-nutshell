@@ -181,8 +181,7 @@ class Eliza:
         text = re.sub(r'\s*;+\s*', ' ; ', text)
         log.debug('After punctuation cleanup: %s', text)
 
-        # words = [w for w in text.split(' ') if w]
-        words = jieba.cut(text, cut_all=True)
+        words = [w for w in text.split(' ') if w]
 
         log.debug('Input: %s', words)
 
@@ -223,6 +222,13 @@ class Eliza:
         while True:
             sent = input('> ')
 
+            words = jieba.cut(sent)
+            sent = "> " + " ".join(words)
+            sent = re.sub(" +", " ", sent)
+            sent = re.sub("我 的", "我的", sent)
+            sent = re.sub("我 是", "我是", sent)
+            print(sent)
+
             output = self.respond(sent)
             if output is None:
                 break
@@ -233,8 +239,8 @@ class Eliza:
 
 
 def main():
-    eliza = Eliza()
-    eliza.load('doctor_zh3.txt')
+    eliza = Eliza() 
+    eliza.load('doctor_zh4.txt')
     eliza.run()
 
 if __name__ == '__main__':

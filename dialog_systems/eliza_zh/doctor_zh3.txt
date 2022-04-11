@@ -1,4 +1,4 @@
-initial: 你好 請 告訴 我 你 的 問題
+initial: 你好 請 告訴 我 你的 問題
 final: 再見 謝謝 你 跟 我 說話
 quit: 再見
 quit: 掰掰
@@ -23,7 +23,7 @@ post: 我 自己 你 自己
 post: 你 自己 我 自己
 post: 我 你
 post: 你 我
-post: 我 你 的
+post: 我 你的
 post: 我 是 你
 synon: 信念 感覺 認 為 相信 願望
 synon: 家庭 媽媽 媽媽 爸爸 爸爸 姐姐 兄弟 妻子 孩子 孩子
@@ -77,8 +77,8 @@ key: 夢想 3
   decomp: *
     reasmb: 那個 夢想 對 你 有 什麼 建議
     reasmb: 你 經常 做 夢 嗎
-    reasmb: 你 的 夢 裡 出現 了 哪些 人
-    reasmb: 你 認 為 夢想 與 你 的 問題 有關 嗎
+    reasmb: 你的 夢 裡 出現 了 哪些 人
+    reasmb: 你 認 為 夢想 與 你的 問題 有關 嗎
 key: 也許
   decomp: *
     reasmb: 你 似乎 不 太 確定
@@ -111,8 +111,8 @@ key: xforeign
     reasmb: 我 只 會 說 中文
 key: 你好
   decomp: *
-    reasmb: 你 好 請 說明 你 的 問題
-    reasmb: 嗨 你 的 問題 是 什麼
+    reasmb: 你 好 請 說明 你的 問題
+    reasmb: 嗨 你的 問題 是 什麼
 key: 電腦 50
   decomp: *
     reasmb: 電腦 讓 你 擔心 嗎
@@ -135,19 +135,19 @@ key: 你是
   decomp: * 你 是 *
     reasmb: 你 為 什麼 對 我 是否 (2) 感興 感興趣 興趣
     reasmb: 如果 我 不是 (2) 你 會 更 喜歡 嗎
-    reasmb: 也許 我 在 你 的 幻想 中 是 (2)
+    reasmb: 也許 我 在 你的 幻想 中 是 (2)
     reasmb: 你 有時 認 為 我 是 (2) 嗎
   decomp: * 是 *
     reasmb: 您 認 為 它們 可能 不是 (2) 嗎
     reasmb: 如果 不是 (2) 你 會 喜歡 嗎
     reasmb: 如果 他們 不是 (2) 怎麼 怎麼辦
     reasmb: 可能 是 (2)
-key: 你的
-  decomp: * 你 的 *
-    reasmb: 你 為 什麼 關心 我 的 (2)
+key: your
+  decomp: * 你的 *
+    reasmb: 你 為 什麼 關心 我的 (2)
     reasmb: 你 自己 的 (2) 呢
     reasmb: 你 擔心 別人 的 (2) 嗎
-    reasmb: 我 的 (2)
+    reasmb: 我的 (2)
 key: 我
   decomp: * 我 @ desire *
     reasmb: 如 果 你 得到 (3) 對 你 意味 著 什麼
@@ -195,7 +195,7 @@ key: 我
     reasmb: 你 喜歡 感覺 (2) 嗎
     reasmb: 感覺 (2) 讓 你 想起 了 什麼
   decomp: * i * you *
-    reasmb: 也許 在 你 的 幻想 中 我們 (2) 彼此
+    reasmb: 也許 在 你的 幻想 中 我們 (2) 彼此
     reasmb: 你 想 (2) 我 嗎
     reasmb: 你 似乎 需要 (2) 我
     reasmb: 你 (2) 還有 其他 其他人 他人 嗎
@@ -238,21 +238,21 @@ key: 沒有
     reasmb: 為 什麼 不 呢
     reasmb: 為 什麼 “ 不 ”
 key: 我的 2
-  decomp: $ * 我 的 *
-    reasmb: 讓 我們 進一步 一步 討論 為 什麼 你 的 (2)
-    reasmb: 之前 你 說 過 你 的 (2)
-    reasmb: 但是 你 的 (2)
+  decomp: $ * 我的 *
+    reasmb: 讓 我們 進一步 一步 討論 為 什麼 你的 (2)
+    reasmb: 之前 你 說 過 你的 (2)
+    reasmb: 但是 你的 (2)
     reasmb: 這 與 您 的 (2) 的 事實 實有 有關 嗎
-  decomp: * 我 的 * @ family *
+  decomp: * 我的 * @ family *
     reasmb: 告訴 我 更多 關於 你家 家人 的 信息
     reasmb: 你家 裡 還有 誰 (4)
-    回复: 你 的 (3)
+    回复: 你的 (3)
     reasmb: 當 您 想到 您 的 (3) 時 ， 您 還 會 想到 什麼
-  decomp: * 我 的 *
-    resmb: 你 的 (2) ?
-    reasmb: 你 為 什麼 說 你 的 (2)
-    reasmb: 這 是否 暗示 了 其他 屬於 你 的 東西
-    reasmb: 你 的 (2) 重要 嗎
+  decomp: * 我的 *
+    resmb: 你的 (2) ?
+    reasmb: 你 為 什麼 說 你的 (2)
+    reasmb: 這 是否 暗示 了 其他 屬於 你的 東西
+    reasmb: 你的 (2) 重要 嗎
 key: 可以
   decomp: * 你 能 *
     reasmb: 你 相信 我 可以 (2) 不是 嗎

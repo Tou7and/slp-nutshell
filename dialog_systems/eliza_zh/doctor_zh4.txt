@@ -1,0 +1,76 @@
+initial: 你好 請 告訴 我 你 的 問題
+final: 再見 謝謝 你 跟 我 說話
+quit: 再見
+quit: 掰掰
+pre: 不要 不
+pre: 不會 不會
+pre: 回憶 記得
+pre: 夢想 夢想
+pre: 也許 也許
+pre: 怎麼 怎麼樣
+pre: 什麼 時候 什麼
+pre: 當然 是
+pre: 機器
+pre: 電腦
+pre: 曾經 是
+pre: 你 是 你
+pre: 我 是 我
+pre: 相同
+post: 我 是
+post: 你 我
+post: 我 你
+post: 我 自己 你 自己
+post: 你 自己 我 自己
+post: 我 你
+post: 你 我
+post: 我 你 的
+post: 我 是 你
+synon: 信念 感覺 認 為 相信 願望
+synon: 家庭 媽媽 媽媽 爸爸 爸爸 姐姐 兄弟 妻子 孩子 孩子
+synon: 渴望 想要 需要
+synon: 悲傷 不高興 沮喪 生病
+synon: 高興 興高采烈 高興 更好
+synon: 不能 不能
+synon: 每個 個人 每個 個人 沒人 沒有 有人
+synon: 是 為
+key: xnone
+  decomp: *
+    reasmb: 我 不 確定 我 是否 完全 理解 你
+    reasmb: 請 繼續
+    reasmb: 這 對 你 有 什麼 建議
+    reasmb: 你 對 討論 這些 事情 有 強烈 的 感覺 嗎
+key: 抱歉
+  decomp: *
+    reasmb: 請 不要 道歉
+    reasmb: 道歉 是 沒有 必要 的
+    reasmb: 我 已經 告訴 過 你 不 需要 道歉
+key: 對不起
+  decomp: *
+    reasmb: goto 抱歉
+key: 我的 2
+  decomp: $ * 我的 *
+    reasmb: 讓 我們 進一步 一步 討論 為 什麼 你 的 (2)
+    reasmb: 之前 你 說 過 你 的 (2)
+    reasmb: 但是 你 的 (2)
+    reasmb: 這 與 您 的 (2) 的 事實 實有 有關 嗎
+  decomp: * 我 的 * @ family *
+    reasmb: 告訴 我 更多 關於 你家 家人 的 信息
+    reasmb: 你家 裡 還有 誰 (4)
+    回复: 你 的 (3)
+    reasmb: 當 您 想到 您 的 (3) 時 ， 您 還 會 想到 什麼
+  decomp: * 我 的 *
+    resmb: 你 的 (2) ?
+    reasmb: 你 為 什麼 說 你 的 (2)
+    reasmb: 這 是否 暗示 了 其他 屬於 你 的 東西
+    reasmb: 你 的 (2) 重要 嗎
+key: 我是
+  decomp: * 我是 *
+    reasmb: 你 相信 你 是 (2) 嗎
+    reasmb: 你 想 成 為 (2) 嗎
+    reasmb: 你 希望 我 告訴 你 你 是 (2) 嗎
+    reasmb: 如果 你 是 (2) 意味 著 什麼
+    reasmb: (2) 是 什麼
+  decomp: *
+    reasmb: 你 為 什麼 說 你 是
+    reasmb: 我 不明 明白
+
