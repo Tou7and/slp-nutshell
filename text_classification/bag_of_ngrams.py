@@ -37,28 +37,12 @@ def bag_of_unigram(corpus, apply_tfidf=False):
     return 
 
 
-def bag_of_jieba(corpus):
-    vectorizer = CountVectorizer(tokenizer=tokenize_jieba, stop_words=["，","。"])
-
-    return
-
-
 def bag_of_bigram(corpus):
     vectorizer = CountVectorizer(tokenizer=tokenize_bigram, stop_words=["，","。"])
     X = vectorizer.fit_transform(corpus)
     print(vectorizer.get_feature_names_out())
     print(X.toarray())
     return
-
-
-def tf_idf(corpus):
-    vectorizer = TfidfVectorizer()
-    X = vectorizer.fit_transform(corpus)
-    print(vectorizer.get_feature_names_out())
-    print(X.toarray())
-
-    return
-
 
 def bag_of_bigram_sk(corpus):
     """ Bag of bigram with scikit-learn
@@ -72,7 +56,11 @@ def bag_of_bigram_sk(corpus):
     return
 
 
-def bow_gnb(train_corpus, test_corpus):
+def tf_idf(corpus):
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(corpus)
+    print(vectorizer.get_feature_names_out())
+    print(X.toarray())
     return
 
 
