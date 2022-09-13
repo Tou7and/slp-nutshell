@@ -1,8 +1,9 @@
 # jieba
 dict.txt.big
 
-# TMP
+# TMP and EXP
 tmp/
+exp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
