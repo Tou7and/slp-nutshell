@@ -5,6 +5,7 @@ from preprocess import load_clean_corpus, load_complete_corpus
 def main(bigram=False):
     # corpus = load_clean_corpus()
     corpus = load_complete_corpus()
+    print(f"Number of documents: {len(corpus)}")
 
     # Construct vocabulary from corpus
     if bigram:
@@ -25,6 +26,9 @@ def main(bigram=False):
     X = vectorizer.transform(corpus[37:38]) # pick the Hamlet
 
     print(f"\nShape of bag-of-words array: {X.shape}\n")
+    print(X)
+    print(X.toarray())
+
     coordinate  = X.tocoo()
     for idx, value in enumerate(coordinate.data):
         sent_id = coordinate.row[idx]
@@ -34,5 +38,6 @@ def main(bigram=False):
     return
 
 if __name__ == "__main__":
-    main(bigram=True)
+    # main(bigram=True)
+    main()
 
