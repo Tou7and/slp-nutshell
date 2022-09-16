@@ -51,8 +51,7 @@ def load_imdb_sentiment_analysis_dataset(data_path, seed=123):
     random.seed(seed)
     random.shuffle(train_labels)
 
-    return ((train_texts, np.array(train_labels)),
-            (test_texts, np.array(test_labels)))
+    return ((train_texts, np.array(train_labels)), (test_texts, np.array(test_labels)))
 
 if __name__ == "__main__":
     train_examples, test_examples = load_imdb_sentiment_analysis_dataset("./exp/")
