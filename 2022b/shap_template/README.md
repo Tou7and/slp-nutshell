@@ -2,7 +2,7 @@
 Use SHAP to analyse the contribution of text components(words, sentences, ...) of inference results. <br>
 - reference: [SHAP-text-examples](https://shap.readthedocs.io/en/latest/text_examples.html#sentiment-analysis)
 
-Load libraries and dataset: 
+## Load libraries and dataset
 ```
 import transformers
 import datasets
@@ -15,7 +15,7 @@ dataset = datasets.load_dataset("imdb", split="test")
 short_data = [v[:512] for v in dataset["text"][12627:12647]]
 ```
 
-Load pre-trained classifier, and construct SHAP explainer:
+## Load pre-trained classifier, and construct SHAP explainer:
 ```
 classifier = transformers.pipeline('sentiment-analysis', return_all_scores=True)
 
@@ -28,7 +28,7 @@ explainer2 = shap.Explainer(classifier, masker)
 
 ```
 
-Get SHAP values and make beautiful plots:
+## Get SHAP values and make beautiful plots:
 ```
 shap_values2 = explainer2(short_data[-8:]) # select samples to get SHAP
 
@@ -36,7 +36,7 @@ shap_values2 = explainer2(short_data[-8:]) # select samples to get SHAP
 shap.plots.text(shap_values3[:,:,1]) # select label to view
 ``` 
 
-Example output:
+## Example output:
 ```
 shap_values2[0,:,1] # 0th sample in the corpus, all players in the game, 1st category in the labels.
 
