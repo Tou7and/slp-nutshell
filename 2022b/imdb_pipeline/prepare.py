@@ -2,24 +2,17 @@ import os
 import random
 import numpy as np
 
-def load_imdb_sentiment_analysis_dataset(data_path, seed=123):
+def load_imdb_sentiment_analysis_dataset(data_path):
     """Loads the IMDb movie reviews sentiment analysis dataset.
 
     # Arguments
         data_path: string, path to the data directory.
-        seed: int, seed for randomizer.
 
     # Returns
-        A tuple of training and validation data.
-        Number of training samples: 25000
-        Number of test samples: 25000
-        Number of categories: 2 (0 - negative, 1 - positive)
+        A tuple of training(25k) and validation(25k) data.
 
     # References
         Mass et al., http://www.aclweb.org/anthology/P11-1015
-
-        Download and uncompress archive from:
-        http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
     """
     imdb_data_path = os.path.join(data_path, 'aclImdb')
 
@@ -46,6 +39,7 @@ def load_imdb_sentiment_analysis_dataset(data_path, seed=123):
                 test_labels.append(0 if category == 'neg' else 1)
 
     # Shuffle the training data and labels.
+    seed = 123
     random.seed(seed)
     random.shuffle(train_texts)
     random.seed(seed)
