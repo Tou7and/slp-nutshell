@@ -17,6 +17,7 @@ All experiments use 5000 random selected samples.
 
 ## GNB model
 ```
+# min-df=1 
 - BOW: 0.5852
 
 # set min-df to 100
@@ -27,6 +28,7 @@ All experiments use 5000 random selected samples.
 
 ## Logistic Regression
 ```
+# min-df=1 
 - BOW: 0.8434
 
 # Fix min-df to 100
@@ -37,26 +39,27 @@ All experiments use 5000 random selected samples.
 
 ## KNN model
 ```
-Try different metrics, with (min-df = 100, K=10)
-# manhattan
-- BOW: 0.61
-- BOW bigram: 0.6144
-- TFIDF bigram: 0.5768
+# Different n-gram, with min-df=100, K=100, cosine distance
+- BOW n1:  0.6584
+- BOW n2:  0.6548
+- BOW n3:  0.6514
+- TFIDF n1:  0.7234
+- TFIDF n2:  0.7142
+- TFIDF n3:  0.7088
 
-# euclidean
-- BOW: 0.5964
-- BOW bigram: 0.5988
-- TFIDF bigram: 0.6774
+# Different distance
+- BOW cosine:  0.6584
+- BOW euclidean:  0.6316
+- BOW manhattan:  0.6264
+- TFIDF cosine:  0.7234
+- TFIDF euclidean:  0.7234
+- TFIDF manhattan:  0.6098
 
-# cosine
-- BOW: 0.634
-- BOW bigram: 0.6288
-- TFIDF bigram: 0.6774
-
-Try different number of neighbors, with (min-df = 100, cosine, tfidf-bigram)
-- K=10: 0.6774
-- K=20: 0.6954
-- K=30: 0.7016
+# Different neighbors, with min-df=100, cosine distance, TFIDF unigram
+- K=10:  0.6888
+- K=30:  0.7169
+- K=100:  0.7234
+- K=300:  0.7126
 ```
 
 
