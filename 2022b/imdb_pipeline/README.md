@@ -11,35 +11,54 @@ wget http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
 tar -zvxf aclImdb_v1.tar.gz
 ```
 
-# Results (Micro F1)
-
-## Logistic Regression
-```
-# BOW
-- unigram: 0.8639
-- bigram: 0.8964
-- bigram, df>10: 0.8933
-- trigram, df>10: 0.8975
-
-# TF-IDF
-- unigram: 0.8831
-- bigram: 0.8862
-- bigram, df>10: 0.8963
-- trigram, df>10: 0.8969
-```
+# Results
+Use Micro F1 as main metric to compute scores. <br>
+All experiments use 5000 random selected samples.
 
 ## GNB model
 ```
-# BOW
-- unigram: 0.5724
-- bigram, df>10: 0.7996
-- trigram, df>100: 0.8522
+- BOW: 0.5852
 
-# TF-IDF
-- unigram: 0.5737
-- bigram, df>10: 0.7944
-- bigram, df>100: 0.8588
+# set min-df to 100
+- BOW: 0.7862
+- BOW bigram: 0.8064
+- TFIDF bigram: 0.8238
 ```
+
+## Logistic Regression
+```
+- BOW: 0.8434
+
+# Fix min-df to 100
+- BOW: 0.8204
+- BOW bigram: 0.8184
+- TFIDF bigram: 0.8459
+```
+
+## KNN model
+```
+Try different metrics, with (min-df = 100, K=10)
+# manhattan
+- BOW: 0.61
+- BOW bigram: 0.6144
+- TFIDF bigram: 0.5768
+
+# euclidean
+- BOW: 0.5964
+- BOW bigram: 0.5988
+- TFIDF bigram: 0.6774
+
+# cosine
+- BOW: 0.634
+- BOW bigram: 0.6288
+- TFIDF bigram: 0.6774
+
+Try different number of neighbors, with (min-df = 100, cosine, tfidf-bigram)
+- K=10: 0.6774
+- K=20: 0.6954
+- K=30: 0.7016
+```
+
 
 ## Transformer
 reference: https://huggingface.co/blog/sentiment-analysis-python

@@ -2,7 +2,7 @@ import os
 import random
 import numpy as np
 
-def load_imdb_sentiment_analysis_dataset(data_path):
+def load_imdb_sentiment_analysis_dataset(data_path, n_subset=5000):
     """Loads the IMDb movie reviews sentiment analysis dataset.
 
     # Arguments
@@ -44,11 +44,21 @@ def load_imdb_sentiment_analysis_dataset(data_path):
     random.shuffle(train_texts)
     random.seed(seed)
     random.shuffle(train_labels)
+    random.seed(seed)
+    random.shuffle(test_texts)
+    random.seed(seed)
+    random.shuffle(test_labels)
 
-    return ((train_texts, np.array(train_labels)), (test_texts, np.array(test_labels)))
+    # Subset to reduce computation cost
+    train_texts = train_texts[:n_subset]
+    train_labels = train_labels[:n_subset]
+    test_texts = test_texts[:n_subset]
+    test_labels = test_labels[:n_subset]
+
+    return train_texts, np.array(train_labels), test_texts, np.array(test_labels)
 
 if __name__ == "__main__":
-    train_examples, test_examples = load_imdb_sentiment_analysis_dataset("./exp/")
-    
-    print(train_examples[0][:2])
-    print(train_examples[1][:2])
+    train_texts, train_labels, test_texts, text_labels = load_imdb_sentiment_analysis_dataset("./exp/")
+    print(train_texts[:2])
+    print(train_labels[:10])
+    print(train_labels.shape)
