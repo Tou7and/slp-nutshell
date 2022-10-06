@@ -1,8 +1,11 @@
 """ Train sentiment classification models with scikit-learn neighbor modules.
 
 2022.09.28, James H.
+2022.10.06, James H.
 """
+import os
 import sys
+import pickle
 import random
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
@@ -10,9 +13,9 @@ from sklearn.neighbors import NearestNeighbors, KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
 from prepare import load_imdb_sentiment_analysis_dataset
 
-def train_knn(embedding_type="bow", max_ngram=1, regex=r"\b\w\w+\b", min_freq=1, distance="cosine", k=100):
-    """ Default: BOW(unigram) plus Gaussian Naive Bayes.
-    """
+def train_knn(embedding_type="bow", max_ngram=1, min_freq=1, distance="cosine", k=100, out_folder=None):
+    """ Train some KNN models """
+    regex=r"\b\w\w+\b"
     train_texts, train_labels, test_texts, test_labels = load_imdb_sentiment_analysis_dataset("./exp/")
 
     # Convert text to vectors
@@ -32,37 +35,46 @@ def train_knn(embedding_type="bow", max_ngram=1, regex=r"\b\w\w+\b", min_freq=1,
     clf.fit(train_feat, train_labels)
     test_preds = clf.predict(test_feat)
 
-    # Show metrics
+    if out_folder is not None:
+        if os.path.isdir(out_folder) == False:
+            os.mkdir(out_folder)
+        vectorizer_path = os.path.join(out_folder, 'vectorizer.sav')
+        model_path = os.path.join(out_folder, 'model.sav')
 
-    # print("F1 Score: ", f1_score(test_labels, test_preds, average="micro"))
-    # print("Precision: ", precision_score(test_labels, test_preds, average="micro"))
-    # print("Recall: ", recall_score(test_labels, test_preds, average="micro"))
-    # print("Macro F1: ", f1_score(test_labels, test_preds, average="macro"))
-    # print("Confuse Matrix: ", confusion_matrix(test_labels, test_preds))
+        with open(vectorizer_path, 'wb') as writer:
+            pickle.dump(vectorizer, writer)
 
-    # print(clf.predict_proba(test_feat[1:2, :]))
+        with open(model_path, 'wb') as writer:
+            pickle.dump(clf, writer)
+
     return f1_score(test_labels, test_preds, average="micro")
 
 if __name__ == "__main__":
     # Try different grams
-    # print("- BOW n1: ", train_knn(min_freq=100))
-    # print("- BOW n2: ", train_knn(max_ngram=2, min_freq=100))
-    # print("- BOW n3: ", train_knn(max_ngram=3, min_freq=100))
-    # print("- TFIDF n1: ", train_knn(embedding_type="tfidf", max_ngram=1, min_freq=100))
-    # print("- TFIDF n2: ", train_knn(embedding_type="tfidf", max_ngram=2, min_freq=100))
-    # print("- TFIDF n3: ", train_knn(embedding_type="tfidf", max_ngram=3, min_freq=100))
+    # print("BOW n1: ", train_knn(min_freq=100))
+    # print("BOW n2: ", train_knn(max_ngram=2, min_freq=100))
+    # print("BOW n3: ", train_knn(max_ngram=3, min_freq=100))
+    # print("TFIDF n1: ", train_knn(embedding_type="tfidf", max_ngram=1, min_freq=100))
+    # print("TFIDF n2: ", train_knn(embedding_type="tfidf", max_ngram=2, min_freq=100))
+    # print("TFIDF n3: ", train_knn(embedding_type="tfidf", max_ngram=3, min_freq=100))
 
     # Try different distance
-    # print("- BOW cosine: ", train_knn(min_freq=100, distance="cosine"))
-    # print("- BOW euclidean: ", train_knn(min_freq=100, distance="euclidean"))
-    # print("- BOW manhattan: ", train_knn(min_freq=100, distance="manhattan"))
-    # print("- TFIDF cosine: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine"))
-    # print("- TFIDF euclidean: ", train_knn(embedding_type="tfidf", min_freq=100, distance="euclidean"))
-    # print("- TFIDF manhattan: ", train_knn(embedding_type="tfidf", min_freq=100, distance="manhattan"))
+    # print("BOW cosine: ", train_knn(min_freq=100, distance="cosine"))
+    # print("BOW euclidean: ", train_knn(min_freq=100, distance="euclidean"))
+    # print("BOW manhattan: ", train_knn(min_freq=100, distance="manhattan"))
+    # print("TFIDF cosine: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine"))
+    # print("TFIDF euclidean: ", train_knn(embedding_type="tfidf", min_freq=100, distance="euclidean"))
+    # print("TFIDF manhattan: ", train_knn(embedding_type="tfidf", min_freq=100, distance="manhattan"))
 
     # Try different neighbors
-    print("- K=10: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=10))
-    print("- K=30: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=30))
-    print("- K=100: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=100))
-    print("- K=300: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=300))
+    # print("K=10: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=10))
+    # print("K=30: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=30))
+    # print("K=100: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=100))
+    # print("K=300: ", train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=300))
+
+    # Save the best model
+    print(
+        "K=100: ", 
+        train_knn(embedding_type="tfidf", min_freq=100, distance="cosine", k=100, out_folder="exp/knn/")
+    )
 
