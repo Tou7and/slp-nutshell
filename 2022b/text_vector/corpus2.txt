@@ -1,0 +1,6 @@
+this movie is awesome.
+the movie is good.
+this movie is nice.
+the movie is bad.
+this movie is not good.
+the movie is the worst.

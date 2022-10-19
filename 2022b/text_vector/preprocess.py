@@ -28,6 +28,12 @@ def load_complete_corpus():
         clean_corpus.append(only_english(line))
     return clean_corpus
 
+def load_corpus2():
+    with open("corpus2.txt", 'r') as reader:
+        corpus = reader.readlines()
+    return corpus
+
+
 if __name__ == "__main__":
     with open("corpus.txt", 'r') as reader:
         corpus = reader.readlines()
