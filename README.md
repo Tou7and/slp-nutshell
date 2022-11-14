@@ -1,2 +1,3 @@
 # slp-nutshell
-speech and language processing in a nutshell
+Tutorials codes for some basic NLP and Speech concepts.
+
