@@ -3,5 +3,8 @@
 - Model instance HuggingFace: [bert-base-uncased](https://huggingface.co/bert-base-uncased)
 
 ## Two finetuning strategies: Tradiational finetuning & Prompt-based finetuning
-- Tradiational finetuning
+- Tradiational finetuning 
 - Prompt-based finetuning
+
+Results of traditional finetunig using BERT on IMDb-5000: {'accuracy': 0.9062}
+
