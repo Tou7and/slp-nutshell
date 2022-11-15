@@ -7,6 +7,7 @@ Results:
 
 2022.11.14, JamesH.
 """
+import os
 import torch
 import evaluate
 import numpy as np
@@ -19,9 +20,11 @@ from tqdm.auto import tqdm
 
 DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
-def main():
+def main(data_folder="exp"):
     print("Loading dataset...")
-    datafiles = {'train': 'exp/train.json', 'test': 'exp/test.json'}
+    datafiles = {
+        'train': os.path.join(data_folder, 'train.json'), 
+        'test': os.path.join(data_folder, 'test.json')}
     dataset = load_dataset("json", data_files=datafiles, cache_dir="exp/cache", field="data")
 
     print("Prepare tokenizer and tokenized dataset...")
@@ -51,7 +54,7 @@ def main():
 
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
-    num_epochs = 3
+    num_epochs = 5
     num_training_steps = num_epochs * len(train_dataloader)
     lr_scheduler = get_scheduler(
         name="linear", 
@@ -90,8 +93,10 @@ def main():
 
     print("eval results:")
     res = metric.compute()
-    print(res)
+    print(data_folder, res)
     return 
 
 if __name__ == "__main__":
-    main()
+    main(data_folder="../exp/few_n0016")
+    main(data_folder="../exp/few_n0080")
+    main(data_folder="../exp/normal_n0400")

@@ -2,16 +2,12 @@
 
 Reference: https://huggingface.co/docs/datasets/loading
 
-JSON: 
-{
-  "version": "0.1.0",
-   "data": [{"a": 1, "b": 2.0, "c": "foo", "d": false},
-           {"a": 4, "b": -5.5, "c": null, "d": true}]
-}
+Usage(make dataset):
 
-LOAD:
-from datasets import load_dataset
-dataset = load_dataset("json", data_files="my_file.json", field="data")
+Usage(load dataset):
+    from datasets import load_dataset
+    datafiles = {'train': 'exp/train.json', 'test': 'exp/test.json'}
+    dataset = load_dataset("json", data_files=datafiles, cache_dir="exp/cache", field="data")
 
 2022.11.14, JamesH.
 """
@@ -21,7 +17,7 @@ import json
 import numpy as np
 from tqdm import tqdm
 
-def prepare_text_as_json(imdb_data_path, n_subset=5000):
+def prepare_text_as_json(imdb_data_path, n_train=5000, n_test=5000, seed=123):
     # imdb_data_path = os.path.join(data_path, 'aclImdb')
 
     # Load the training data
@@ -46,27 +42,35 @@ def prepare_text_as_json(imdb_data_path, n_subset=5000):
                 tmp_label = 0 if category == 'neg' else 1
                 test_data.append({'text': tmp_text, 'label': tmp_label})
 
-    seed = 123
     random.seed(seed)
     random.shuffle(train_data)
     random.seed(seed)
     random.shuffle(test_data)
 
     # Subset to reduce computation cost
-    train_data = train_data[:n_subset]
-    test_data = test_data[:n_subset]
+    train_data = train_data[:n_train]
+    test_data = test_data[:n_test]
 
     json_body_train = {"version": "IMDb_sub5000_train", "data": train_data}
     json_body_test = {"version": "IMDb_sub5000_test", "data": test_data}
     return json_body_train, json_body_test
 
-def dump_json_files():
-    body_train, body_test = prepare_text_as_json("../../../exp/aclImdb")
+def dump_json_files(n_train, n_test, outdir):
+    """ Create subsets from IMDb dataset.
+    Args:
+        n_train(int): number of samples to subset as training
+        n_test(int): number of samples to subset as testing
+        outdir(str): output folder path.
+    """
+    body_train, body_test = prepare_text_as_json("../../exp/aclImdb", n_train, n_test)
 
-    with open('exp/train.json', 'w') as writer:
+    if os.path.isdir(outdir) == False:
+        os.makedirs(outdir)
+
+    with open(os.path.join(outdir, 'train.json'), 'w') as writer:
         json.dump(body_train, writer, indent=4)
 
-    with open('exp/test.json', 'w') as writer:
+    with open(os.path.join(outdir, 'test.json'), 'w') as writer:
         json.dump(body_test, writer, indent=4)
     return 0
 
@@ -79,6 +83,7 @@ def load_from_json():
     return dataset
 
 if __name__ == "__main__":
-    # dump_json_files()
-    load_from_json()
-
+    dump_json_files(400, 5000, "exp/normal_n0400")
+    dump_json_files(80, 5000, "exp/few_n0080")
+    dump_json_files(16, 5000, "exp/few_n0016")
+    # load_from_json()
