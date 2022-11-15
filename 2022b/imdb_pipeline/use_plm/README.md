@@ -1,3 +1,2 @@
-# IMDb text classification pipelines using Pretrained Language Models
-
-
+# Text classification with PLM
+PLM: pretrained language models

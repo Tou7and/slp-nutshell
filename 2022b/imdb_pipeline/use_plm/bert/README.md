@@ -6,9 +6,7 @@
 - Tradiational finetuning 
 - Prompt-based finetuning
 
-Results of traditional finetunig using BERT on IMDb-5000: {'accuracy': 0.9062}
-
-Few shot performance of traditional and prompt finetuning (epoch=5, batch-size=8):
+Few shot performance of traditional and prompt finetuning (epoch=5, batch-size=8, n-test=5000):
 - 0.5412, 0.7516 (n-train=16)
 - 0.8228, 0.812 (n-train=80)
 - 0.8818, 0.8654 (n-train=400)
