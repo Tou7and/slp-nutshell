@@ -2,6 +2,10 @@
 Use Micro F1 as main metric to compute scores. <br>
 All experiments use 5000 random selected samples.
 
+We borrow the data prepare snippets from:
+- [Google Guides for Text Classification](https://developers.google.com/machine-learning/guides/text-classification)
+- [Google Guides for Text Classification - github links](https://github.com/google/eng-edu/tree/main/ml/guides/text_classification)
+
 ## GNB model
 ```
 # min-df=1 
