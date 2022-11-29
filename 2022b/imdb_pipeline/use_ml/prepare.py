@@ -58,7 +58,7 @@ def load_imdb_sentiment_analysis_dataset(data_path, n_subset=5000):
     return train_texts, np.array(train_labels), test_texts, np.array(test_labels)
 
 if __name__ == "__main__":
-    train_texts, train_labels, test_texts, text_labels = load_imdb_sentiment_analysis_dataset("./exp/")
+    train_texts, train_labels, test_texts, text_labels = load_imdb_sentiment_analysis_dataset("../exp")
     print(train_texts[:2])
     print(train_labels[:10])
     print(train_labels.shape)

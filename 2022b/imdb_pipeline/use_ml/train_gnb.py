@@ -13,7 +13,7 @@ from prepare import load_imdb_sentiment_analysis_dataset
 def train_gnb(embedding_type="bow", max_ngram=1, regex=r"\b\w\w+\b", min_freq=1):
     """ Default: BOW(unigram) plus Gaussian Naive Bayes.
     """
-    train_texts, train_labels, test_texts, test_labels = load_imdb_sentiment_analysis_dataset("./exp/")
+    train_texts, train_labels, test_texts, test_labels = load_imdb_sentiment_analysis_dataset("../exp/")
 
     if embedding_type == 'tfidf':
         vectorizer = TfidfVectorizer(ngram_range=(1, max_ngram), token_pattern=regex, min_df=min_freq)
@@ -54,4 +54,3 @@ if __name__ == "__main__":
 
     print("- TFIDF bigram, min-df=100: ")
     train_gnb(embedding_type="tfidf", max_ngram=2, min_freq=100)
-

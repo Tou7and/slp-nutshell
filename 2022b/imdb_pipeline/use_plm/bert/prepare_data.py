@@ -3,7 +3,7 @@
 Reference: https://huggingface.co/docs/datasets/loading
 
 Usage(make dataset):
-    # dump_json_files(n_train, n_test, outdir, src_path="../../use_ml/exp/aclImdb")
+    # dump_json_files(n_train, n_test, outdir, src_path="../../exp/aclImdb")
     dump_json_files(400, 5000, "exp/normal_n0400")
     # src_path is the folder after download and unzipping the IMDb dataset. (../../README.md)
 
@@ -58,7 +58,7 @@ def prepare_text_as_json(imdb_data_path, n_train=5000, n_test=5000, seed=123):
     json_body_test = {"version": "IMDb_sub5000_test", "data": test_data}
     return json_body_train, json_body_test
 
-def dump_json_files(n_train, n_test, outdir, src_path="../../use_ml/exp/aclImdb"):
+def dump_json_files(n_train, n_test, outdir, src_path="../../exp/aclImdb"):
     """ Create subsets from IMDb dataset.
     Args:
         n_train(int): number of samples to subset as training

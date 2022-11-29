@@ -16,7 +16,7 @@ from prepare import load_imdb_sentiment_analysis_dataset
 def train_knn(embedding_type="bow", max_ngram=1, min_freq=1, distance="cosine", k=100, out_folder=None):
     """ Train some KNN models """
     regex=r"\b\w\w+\b"
-    train_texts, train_labels, test_texts, test_labels = load_imdb_sentiment_analysis_dataset("./exp/")
+    train_texts, train_labels, test_texts, test_labels = load_imdb_sentiment_analysis_dataset("../exp/")
 
     # Convert text to vectors
     if embedding_type == 'tfidf':
