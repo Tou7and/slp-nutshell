@@ -3,6 +3,9 @@
 Reference: https://huggingface.co/docs/datasets/loading
 
 Usage(make dataset):
+    # dump_json_files(n_train, n_test, outdir, src_path="../../use_ml/exp/aclImdb")
+    dump_json_files(400, 5000, "exp/normal_n0400")
+    # src_path is the folder after download and unzipping the IMDb dataset. (../../README.md)
 
 Usage(load dataset):
     from datasets import load_dataset
@@ -55,14 +58,14 @@ def prepare_text_as_json(imdb_data_path, n_train=5000, n_test=5000, seed=123):
     json_body_test = {"version": "IMDb_sub5000_test", "data": test_data}
     return json_body_train, json_body_test
 
-def dump_json_files(n_train, n_test, outdir):
+def dump_json_files(n_train, n_test, outdir, src_path="../../use_ml/exp/aclImdb"):
     """ Create subsets from IMDb dataset.
     Args:
         n_train(int): number of samples to subset as training
         n_test(int): number of samples to subset as testing
         outdir(str): output folder path.
     """
-    body_train, body_test = prepare_text_as_json("../../exp/aclImdb", n_train, n_test)
+    body_train, body_test = prepare_text_as_json(src_path, n_train, n_test)
 
     if os.path.isdir(outdir) == False:
         os.makedirs(outdir)

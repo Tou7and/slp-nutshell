@@ -50,12 +50,6 @@ All experiments use 5000 random selected samples.
 ```
 
 
-## Transformer
-reference: https://huggingface.co/blog/sentiment-analysis-python
-
-```
-TBD
-```
 
 # References
 - [Google Guides for Text Classification](https://developers.google.com/machine-learning/guides/text-classification)
