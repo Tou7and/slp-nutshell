@@ -27,7 +27,7 @@ def match_mandarin():
     print(zh_4.findall(x))
 
 # Unicode range of Japanese: 4e00-9fbf, 3040-309f and 30a0-30ff
-jp_1 = re.compile(r"[\u4e00-\u9fbf]|[\u3040-\u309f]|[\u30a0-\u30ff]") 
+jp_1 = re.compile(r"[\u4e00-\u9fbf]|[\u3040-\u309f]|[\u30a0-\u30ff]")
 jp_2 = re.compile(r"[\u4e00-\u9fbf]+|[\u3040-\u309f]+|[\u30a0-\u30ff]+")
 def match_japanese():
     x = "お前もガンダムですか"
