@@ -22,7 +22,6 @@ def test_zero_shot():
     ref_list = []
     hyp_list = []
 
-    counts = 0
     # Convert example into prompt template
     for example in tqdm(test_set):
         # print(example)
@@ -39,13 +38,8 @@ def test_zero_shot():
         ref_list.append(example_pt[1])
         hyp_list.append(output_label)
 
-        print(ref_list, hyp_list)
-        counts += 1
-        if counts > 3:
-            sys.exit(0)
-
-    print(ref_list)
-    print(hyp_list)
+    # print(ref_list)
+    # print(hyp_list)
     acc = sum([int(i==j) for i,j in zip(ref_list, hyp_list)])/len(ref_list)
     print("ACC:", acc)
     return acc
