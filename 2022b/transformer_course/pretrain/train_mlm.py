@@ -45,6 +45,10 @@ tokenized_datasets = imdb_dataset.map(
 # print(tokenizer.model_max_length)
 
 def group_texts(examples, chunk_size=128):
+    """
+    Note that using a small chunk size can be detrimental in real-world scenarios.
+    One should use a size that corresponds to the use case to apply the model to.
+    """
     # Concatenate all texts
     concatenated_examples = {k: sum(examples[k], []) for k in examples.keys()}
     # Compute length of concatenated texts
