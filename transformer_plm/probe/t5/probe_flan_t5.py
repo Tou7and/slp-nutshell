@@ -6,14 +6,14 @@ Let's try large model.
 """
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-# model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small").to("cuda")
-# tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-small")
+model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small").to("cuda")
+tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-small")
 
 # model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-large").to("cuda")
 # tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-large")
 
-model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xl").to("cuda")
-tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xl")
+# model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xl").to("cuda")
+# tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xl")
 
 def ask(text):
     # inputs = tokenizer("A step by step recipe to make bolognese pasta:", return_tensors="pt")
