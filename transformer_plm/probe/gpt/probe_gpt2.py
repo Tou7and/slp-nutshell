@@ -2,7 +2,7 @@ from transformers import pipeline
 
 generator = pipeline(
     'text-generation',
-    model='/home/t36668/projects/icd-transformers/recipes/cmai_gpt2/v1a/exp/cmai-gpt2-v1a',
+    model='/home/t36668/projects/icd-transformers/recipes/cmai_gpt2/v1b/exp/cmai-gpt2-v1b',
     device="cuda:0")
 
 def ask(text):
